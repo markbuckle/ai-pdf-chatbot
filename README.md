@@ -31,3 +31,8 @@ You need to use:
 ```py
 streamlit run app.py
 ```
+
+## API Keys
+
+Login to both OpenAI and HuggingFaceHub and setup your API keys in your dotenv
+file.
