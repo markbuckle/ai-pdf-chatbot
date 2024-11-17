@@ -1,4 +1,4 @@
-## Getting Started
+## Dependencies
 
 Setup the virtual environment:
 
@@ -19,4 +19,15 @@ for cost-effective and functional models
 
 ```py
 pip install streamlit pypdf2 langchain python-dotenv faiss-cpu openai huggingface_hub
+```
+
+## Code
+
+Start with the GUI code.
+
+Not that with Streamlit, running the main file with python app.py will not work.
+You need to use:
+
+```py
+streamlit run app.py
 ```
