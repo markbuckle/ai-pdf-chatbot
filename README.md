@@ -36,3 +36,18 @@ streamlit run app.py
 
 Login to both OpenAI and HuggingFaceHub and setup your API keys in your dotenv
 file.
+
+## How this works
+
+The user uploads as many PDFs as they want. These PDFs are broken up into chunks
+aka chunk splitter. Those chunks are converted into vector embeddings aka a
+number representation of such text. The numbers also contain information
+regarding the meaning of the text. So when you search / prompt, the chunks of
+relevant information are found by matching the vector embeddings. The question
+emveddings uses the same algorithm as the chunk splitter vector embeddings. This
+allows for accurate matching of questions to answers. Once the embeddings are
+created, they are then stored in a knowledge database such as Faiss, Pinecone,
+or ChromaDB. In our case we will be using Faiss. The answer embeddings are
+ranked and the highest ranked are returned as results. The LLM then takes the
+chunks that we give it and generates a response. Langchain is the link for all
+this to happen.
