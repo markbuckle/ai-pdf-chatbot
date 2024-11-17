@@ -1,7 +1,9 @@
 import streamlit as st
 from dotenv import load_dotenv  # enables app to use .env
 from PyPDF2 import PdfReader
-from langchain.text_splitters import CharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter
+from langchain_openai import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
 
 
 def get_pdf_text(pdf_docs):
@@ -19,6 +21,12 @@ def get_text_chunks(text):
     )
     chunks = text_splitter.split_text(text)
     return chunks
+
+
+def get_vectorstore(text_chunks):
+    embeddings = OpenAIEmbeddings()
+    vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
+    return vectorstore
 
 
 def main():
@@ -44,6 +52,7 @@ def main():
                 # st. write(text_chunks)
 
                 # create vector store (database)
+                vectorstore = get_vectorstore(text_chunks)
 
 
 # run only if the application is being run directly and not imported

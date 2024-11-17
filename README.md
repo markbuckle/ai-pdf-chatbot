@@ -13,12 +13,14 @@ Install [Streamlit](https://streamlit.io/) for the Graphical User Interface
 Install [langchain](https://www.langchain.com/langchain) to interact with our
 LLMs Install [python-dotenv](https://pypi.org/project/python-dotenv/) to load or
 .env secrets Install [faiss-cpu](https://pypi.org/project/faiss-cpu/) as a
-vector search and clustering Install openai Install
+vector search and clustering Install
+[openai](https://python.langchain.com/docs/integrations/text_embedding/openai/)
+Install
 [huggingface_hub](https://huggingface.co/docs/hub/repositories-getting-started)
 for cost-effective and functional models
 
 ```py
-pip install streamlit pypdf2 langchain python-dotenv faiss-cpu openai huggingface_hub
+pip install streamlit pypdf2 langchain python-dotenv faiss-cpu langchain-openai huggingface_hub
 ```
 
 ## Code
@@ -51,3 +53,13 @@ or ChromaDB. In our case we will be using Faiss. The answer embeddings are
 ranked and the highest ranked are returned as results. The LLM then takes the
 chunks that we give it and generates a response. Langchain is the link for all
 this to happen.
+
+## Embeddings Models
+
+Splitting text into chunks and coverting to embeddings is typically not free.
+See [openai.com/pricing](https://openai.com/api/pricing/) and search _Embedding
+Models_.
+
+See the
+[HuggingFace leaderboard](https://huggingface.co/spaces/mteb/leaderboard) for
+the best ranked embedding models.
