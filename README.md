@@ -81,3 +81,14 @@ To set up your code see
 https://python.langchain.com/docs/integrations/text_embedding/instruct_embeddings/
 
 https://huggingface.co/hkunlp/instructor-xl
+
+## Deploying
+
+### Requirements
+
+To generate your requirements.txt file, run this command and include any
+dependency you install while building the app"
+
+```py
+pip freeze | Select-String -Pattern "streamlit|langchain|langchain_community|langchain_huggingface|langchain_openai|langchain_core|pypdf2|python-dotenv" >> requirements.txt
+```
