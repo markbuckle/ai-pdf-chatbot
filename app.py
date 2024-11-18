@@ -10,6 +10,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
+from htmlTemplates import css, bot_template, user_template
 
 
 def get_pdf_text(pdf_docs):
@@ -98,6 +99,9 @@ def get_conversation_chain(vectorstore):
 def main():
     load_dotenv()
     st.set_page_config(page_title="PDF Chat", page_icon=":books:")
+
+    st.write(css, unsafe_allow_html=True)
+
     st.header("Chat with Multiple PDFs :books:")
 
     # Initialize session states
@@ -140,6 +144,9 @@ def main():
 
     # User question input
     user_question = st.text_input("Ask a question about your documents:")
+
+    st.write(user_template.replace("{{MSG}}", "Hello Mark"), unsafe_allow_html=True)
+    st.write(user_template.replace("{{MSG}}", "Hello Human"), unsafe_allow_html=True)
 
     # Handle user questions
     if user_question:
