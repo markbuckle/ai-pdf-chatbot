@@ -98,11 +98,11 @@ def get_conversation_chain(vectorstore):
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="PDF Chat", page_icon=":books:")
+    st.set_page_config(page_title="PDF Chat", page_icon="📑")
 
     st.write(css, unsafe_allow_html=True)
 
-    st.header("Chat with Multiple PDFs :books:")
+    st.header("Chat with Multiple PDFs 📑")
 
     # Initialize session states
     if "vectorstore" not in st.session_state:
@@ -117,7 +117,19 @@ def main():
             "Upload PDFs here", accept_multiple_files=True, type=["pdf"]
         )
 
-        if st.button("Process PDFs"):
+        # Add custom CSS just for this button
+        st.markdown(
+            """
+            <style>
+            [data-testid="stSidebarNav"] .stButton > button {
+                margin-top: 0;
+            }
+            </style>
+        """,
+            unsafe_allow_html=True,
+        )
+
+        if st.button("Process PDFs", key="process_button"):
             if not pdf_docs:
                 st.error("Please upload PDFs first!")
                 return
@@ -142,11 +154,31 @@ def main():
                     st.session_state.conversation = get_conversation_chain(vectorstore)
                     st.success("PDFs processed successfully!")
 
-    # User question input
-    user_question = st.text_input("Ask a question about your documents:")
+    # Create columns with custom widths
+    col1, col2 = st.columns(
+        [4, 1], gap="small"
+    )  # Adding gap="small" reduces space between columns
 
-    st.write(user_template.replace("{{MSG}}", "Hello Mark"), unsafe_allow_html=True)
-    st.write(user_template.replace("{{MSG}}", "Hello Human"), unsafe_allow_html=True)
+    with col1:
+        user_question = st.text_input(
+            "Ask a question about your documents:",
+            placeholder="Type your question here...",
+            key="user_question",  # Adding a key can help with consistency
+            label_visibility="visible",
+        )
+
+    with col2:  # ask button icon
+        # Add some vertical spacing to align with input
+        submit_button = st.button(
+            "Ask", type="primary", use_container_width=True, key="ask_button"
+        )
+
+    # Handle the submission
+    if submit_button and user_question:
+        # Your processing code here
+        st.write("Processing your question...")
+    elif submit_button and not user_question:
+        st.warning("Please enter a question first.")
 
     # Handle user questions
     if user_question:
