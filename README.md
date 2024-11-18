@@ -48,7 +48,7 @@ aka chunk splitter. Those chunks are converted into vector embeddings aka a
 number representation of such text. The numbers also contain information
 regarding the meaning of the text. So when you search / prompt, the chunks of
 relevant information are found by matching the vector embeddings. The question
-emveddings uses the same algorithm as the chunk splitter vector embeddings. This
+embeddings uses the same algorithm as the chunk splitter vector embeddings. This
 allows for accurate matching of questions to answers. Once the embeddings are
 created, they are then stored in a knowledge database such as Faiss, Pinecone,
 or ChromaDB. In our case we will be using Faiss. The answer embeddings are
@@ -66,9 +66,11 @@ the best ranked embedding models.
 
 ### Open AI
 
-Splitting text into chunks and coverting to embeddings is typically not free.
+Splitting text into chunks and converting to embeddings is typically not free.
 See [openai.com/pricing](https://openai.com/api/pricing/) and search _Embedding
 Models_.
+
+https://python.langchain.com/api_reference/openai/chat_models/langchain_openai.chat_models.base.ChatOpenAI.html#langchain_openai.chat_models.base.ChatOpenAI
 
 ### Instructor
 
