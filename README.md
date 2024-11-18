@@ -17,10 +17,12 @@ vector search and clustering Install
 [openai](https://python.langchain.com/docs/integrations/text_embedding/openai/)
 Install
 [huggingface_hub](https://huggingface.co/docs/hub/repositories-getting-started)
-for cost-effective and functional models
+for cost-effective and functional models Install
+[InstructorEmbedding](https://python.langchain.com/docs/integrations/text_embedding/instruct_embeddings/)
+for a free embedding model instead of using OpenAI or others.
 
 ```py
-pip install streamlit pypdf2 langchain python-dotenv faiss-cpu langchain-openai huggingface_hub
+pip install streamlit pypdf2 langchain python-dotenv faiss-cpu langchain-openai huggingface_hub InstructorEmbedding sentence_transformers
 ```
 
 ## Code
@@ -56,10 +58,24 @@ this to happen.
 
 ## Embeddings Models
 
-Splitting text into chunks and coverting to embeddings is typically not free.
-See [openai.com/pricing](https://openai.com/api/pricing/) and search _Embedding
-Models_.
+### Embedding Model Rankings
 
 See the
 [HuggingFace leaderboard](https://huggingface.co/spaces/mteb/leaderboard) for
 the best ranked embedding models.
+
+### Open AI
+
+Splitting text into chunks and coverting to embeddings is typically not free.
+See [openai.com/pricing](https://openai.com/api/pricing/) and search _Embedding
+Models_.
+
+### Instructor
+
+Note that the Instructor Embedding model will take significantly longer than the
+OpenAI model.
+
+To set up your code see
+https://python.langchain.com/docs/integrations/text_embedding/instruct_embeddings/
+
+https://huggingface.co/hkunlp/instructor-xl
