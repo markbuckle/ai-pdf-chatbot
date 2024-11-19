@@ -92,3 +92,9 @@ dependency you install while building the app"
 ```py
 pip freeze | Select-String -Pattern "streamlit|langchain|langchain_community|langchain_huggingface|langchain_openai|langchain_core|pypdf2|python-dotenv" >> requirements.txt
 ```
+
+### Deployment Options
+
+1. [Streamlit Community Cloud](https://streamlit.io/cloud)
+
+2. [Render](https://render.com/)
