@@ -42,12 +42,65 @@ css = """
 
 /* File Uploader Styling */
 [data-testid="stFileUploader"] {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    border: 2px dashed rgba(255, 255, 255, 0.2);
+    background-color: rgba(248, 248, 248, 0.4);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 2px dashed #3b82f6;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
 }
 
+[data-testid="stFileUploader"]:hover {
+    background-color: rgba(240, 249, 255, 0.5);
+    border-style: solid;
+    transform: scale(1.02);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Drag and Drop Text Styles */
+[data-testid="stFileUploader"] .stMarkdown {
+    color: #64748b;
+    font-weight: 500;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Uploaded Files Container Styles */
+[data-testid="stFileUploaderContainer"] {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Uploaded File Name Styles */
+[data-testid="stFileUploaderFileName"] {
+    font-weight: 600;
+    color: #1e293b;
+    margin-right: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Uploaded File Size Styles */
+[data-testid="stFileUploaderFileData"] {
+    color: #1e293b;
+    font-weight: 500;
+    margin-right: 1rem;
+}
+
+/* Remove File Button Styles */
+[data-testid="stFileUploaderDeleteBtn"] {
+    color: #dc2626;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+[data-testid="stFileUploaderDeleteBtn"]:hover {
+    color: #b91c1c;
+}
 /* Chat Message Styling */
 .chat-message {
     padding: 1.5rem;
